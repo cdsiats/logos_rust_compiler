@@ -1,0 +1,11 @@
+[package]
+name = "logos_rust_compiler"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "logos_rust_compiler"
+crate-type = ["rlib", "cdylib"]
+
+[dependencies]
+logos = "0.15.0"
