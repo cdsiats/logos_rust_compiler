@@ -22,5 +22,10 @@ pub enum Token {
     #[regex(r#"-?\d+\.\d+"#)]
     // String Literals
     #[regex(r#""([^"]+)""#)]
-    Literal
+    // Boolean
+    #[regex(r"true|false")]
+    Literal,
+
+    #[token("null")]
+    Null,
 }

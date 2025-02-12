@@ -42,4 +42,16 @@ mod tests {
         assert_eq!(lexer.next(), Some(Ok(Token::Literal)));
         assert_eq!(lexer.slice(), "-44.4");
     }
+
+    #[test]
+    fn tokenize_booleans() {
+        let input = "true false";
+        let mut lexer = Token::lexer(input);
+
+        assert_eq!(lexer.next(), Some(Ok(Token::Literal)));
+        assert_eq!(lexer.slice(), true.to_string());
+
+        assert_eq!(lexer.next(), Some(Ok(Token::Literal)));
+        assert_eq!(lexer.slice(), false.to_string());
+    }
 }
