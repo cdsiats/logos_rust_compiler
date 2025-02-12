@@ -14,6 +14,8 @@ pub enum Token {
     #[regex(r#"[a-z_][a-z0-9_]*"#)]
     // Uppercase
     #[regex(r#"[A-Z_][A-Z0-9_]*/i"#)]
+    // Attribute Identifier
+    #[regex(r#"@[a-z](\.?[a-z0-9_]+)*"#)]
     Identifier,
 
     // Integers
@@ -29,6 +31,7 @@ pub enum Token {
     #[token("null")]
     Null,
 
+    // Symbols
     #[token("(")]
     OpenParen,
     #[token(")")]
@@ -41,4 +44,20 @@ pub enum Token {
     OpenSquare,
     #[token("]")]
     CloseSquare,
+    #[token("!")]
+    Final,
+
+    // Keywords
+    #[token("plugin")]
+    PluginKeyword,
+    #[token("use")]
+    UseKeyword,
+    #[token("prop")]
+    PropKeyword,
+    #[token("enum")]
+    EnumKeyword,
+    #[token("type")]
+    TypeKeyword,
+    #[token("model")]
+    ModelKeyword,
 }
