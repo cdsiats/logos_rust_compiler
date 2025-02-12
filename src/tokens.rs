@@ -28,4 +28,17 @@ pub enum Token {
 
     #[token("null")]
     Null,
+
+    #[token("(")]
+    OpenParen,
+    #[token(")")]
+    CloseParen,
+    #[token("{")]
+    OpenBrace,
+    #[token("}")]
+    CloseBrace,
+    #[token("[")]
+    OpenSquare,
+    #[token("]")]
+    CloseSquare,
 }
