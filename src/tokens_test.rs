@@ -132,29 +132,25 @@ mod tests {
 
         let mut lexer = Token::lexer(input);
 
-        while let Some(token) = lexer.next() {
-            println!("{:#?} {:#?}", token, lexer.slice());
-        }
+        assert_eq!(lexer.next(), Some(Ok(Token::PluginKeyword)));
+        assert_eq!(lexer.slice(), "plugin");
 
-        // assert_eq!(lexer.next(), Some(Ok(Token::PluginKeyword)));
-        // assert_eq!(lexer.slice(), "plugin");
+        assert_eq!(lexer.next(), Some(Ok(Token::Literal)));
+        assert_eq!(lexer.slice(), "\"./custom-plugin\"");
 
-        // assert_eq!(lexer.next(), Some(Ok(Token::Literal)));
-        // assert_eq!(lexer.slice(), "\"./custom-plugin\"");
+        assert_eq!(lexer.next(), Some(Ok(Token::OpenBrace)));
+        assert_eq!(lexer.slice(), "{");
 
-        // assert_eq!(lexer.next(), Some(Ok(Token::OpenBrace)));
-        // assert_eq!(lexer.slice(), "{");
+        assert_eq!(lexer.next(), Some(Ok(Token::Identifier)));
+        assert_eq!(lexer.slice(), "lang");
 
-        // assert_eq!(lexer.next(), Some(Ok(Token::Identifier)));
-        // assert_eq!(lexer.slice(), "lang");
+        assert_eq!(lexer.next(), Some(Ok(Token::Literal)));
+        assert_eq!(lexer.slice(), "\"ts\"");
 
-        // assert_eq!(lexer.next(), Some(Ok(Token::Literal)));
-        // assert_eq!(lexer.slice(), "\"ts\"");
+        assert_eq!(lexer.next(), Some(Ok(Token::Identifier)));
+        assert_eq!(lexer.slice(), "output");
 
-        // assert_eq!(lexer.next(), Some(Ok(Token::Identifier)));
-        // assert_eq!(lexer.slice(), "output");
-
-        // assert_eq!(lexer.next(), Some(Ok(Token::Literal)));
-        // assert_eq!(lexer.slice(), "\"./output/enums\"");
+        assert_eq!(lexer.next(), Some(Ok(Token::Literal)));
+        assert_eq!(lexer.slice(), "\"./output/enums\"");
     }
 }
